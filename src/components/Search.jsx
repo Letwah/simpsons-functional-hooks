@@ -1,9 +1,13 @@
 const Search = (props) => {
-  const { onSearchInput, onLikeDislikeInput } = props;
-  // console.log(typeof onLikeDislikeInput);
+  const { onSearchInput, onLikeDislikeInput, onCharacterInput } = props;
 
   return (
     <>
+      <input
+        onInput={onCharacterInput}
+        type="text"
+        placeholder="start typing ..."
+      ></input>
       <input
         onInput={onSearchInput}
         type="text"

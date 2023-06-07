@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Simpsons from "./components/Simpsons";
 import Loading from "./components/Loading";
@@ -10,11 +10,13 @@ const App = () => {
   const [simpsons, setSimpsons] = useState(); //hooks always go at top
   const [search, setSearch] = useState("");
   const [liked, setLiked] = useState("");
+  const [characterInput, setCharacterInput] = useState("");
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
+    console.log("get data ran");
     try {
       const { data } = await axios.get(
-        `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=ho` //Would return up to 15 quotes from Homer and Milhouse
+        `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=${characterInput}` //Would return up to 15 quotes from Homer and Milhouse
       );
       //fix the api data to have unique id
       data.forEach((element, index) => {
@@ -24,11 +26,13 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [characterInput]);
+
+  // console.log(characterInput);
 
   useEffect(() => {
     getData();
-  }, []); // hook that triggers behaviour - means run once cos square brackets (dependancy array)
+  }, [getData]); // hook that triggers behaviour - means run once cos square brackets (dependancy array)
 
   const onLikeToggle = (id) => {
     const _simpsons = [...simpsons];
@@ -70,6 +74,10 @@ const App = () => {
       _simpsons[indexOf].characterDirection === "Left" ? "Right" : "Left";
 
     setSimpsons(_simpsons);
+  };
+
+  const onCharacterInput = (e) => {
+    setCharacterInput(e.target.value);
   };
 
   const onSearchInput = (e) => {
@@ -129,7 +137,9 @@ const App = () => {
           Total No of Liked Characters <span>&#128073; </span>
           {total}
         </h1>
+
         <Search
+          onCharacterInput={onCharacterInput}
           onSearchInput={onSearchInput}
           onLikeDislikeInput={onLikeDislikeInput}
         />
