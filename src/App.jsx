@@ -14,7 +14,7 @@ const App = () => {
   const getData = async () => {
     try {
       const { data } = await axios.get(
-        `https://thesimpsonsquoteapi.glitch.me/quotes?count=10`
+        `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=ho` //Would return up to 15 quotes from Homer and Milhouse
       );
       //fix the api data to have unique id
       data.forEach((element, index) => {
