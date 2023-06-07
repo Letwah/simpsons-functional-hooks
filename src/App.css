@@ -1,0 +1,358 @@
+#root {
+  width: 100vw;
+  height: auto;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+  color: #1a1a1a;
+  background-image: url("src/assets/DohNuts.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/*MY STUFF*/
+
+img.liked {
+  width: 200px;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+img.notLiked {
+  width: 150px;
+
+  filter: grayscale(1);
+}
+
+/*title*/
+
+.title {
+  box-shadow: 0 0 50px 15px #f750c5;
+  width: 80vw;
+  margin: auto;
+}
+
+.title,
+h2 {
+  background-color: #5596cf;
+  padding: 10px;
+  border: solid 2px #f750c5;
+  border-radius: 50px;
+  text-align: center;
+}
+h2,
+.title input,
+.title select {
+  border-radius: 8px;
+  box-shadow: 0 0 10px 2px #f750c5;
+}
+
+.title input,
+.title select {
+  padding: 0.8rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.title select {
+  margin-left: 20px;
+}
+h1 {
+  font-size: 2.4em;
+  line-height: 1.1;
+}
+h2 {
+  contain: content;
+  max-width: 120px;
+  font-size: 1.4em;
+  line-height: 1.1;
+}
+
+div.title > img.logo {
+  padding-bottom: 0;
+}
+/*attempt at rotating H*/
+/* span.rot45 {
+  transform: rotate(-45deg);
+  float: right;
+} */
+
+.characterContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  padding: 20px;
+  margin: 50px;
+  border-radius: 50px;
+  border: 1px solid rgba(67, 127, 169, 0.2);
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  /* to set z-index on button */
+  position: sticky;
+  z-index: 0;
+}
+
+.characterContainer div {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  /* margin-inline-start: 2em; */
+  margin: 0.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+/* you deleted everyone!*/
+
+.deletedEveryone {
+  /* position the div in center */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  border: 2px dashed #f750c5;
+  border-radius: 30px;
+  color: #f750c5;
+  padding: 2rem;
+}
+
+.reload {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-flicker {
+  -webkit-animation: flickerAnimation 0.5s infinite;
+  -moz-animation: flickerAnimation 0.5s infinite;
+  -o-animation: flickerAnimation 0.5s infinite;
+  animation: flickerAnimation 0.5s infinite;
+}
+
+/* END of 'you deleted everyone!'*/
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+/*loader*/
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 48px;
+  display: inline-block;
+  background: linear-gradient(
+      45deg,
+      #000 25%,
+      transparent 25%,
+      transparent 75%,
+      #000 75%,
+      #000 100%
+    ),
+    linear-gradient(45deg, #000 25%, white 25%, white 75%, #000 75%, #000 100%);
+  font-size: 10px;
+  background-size: 32px 32px;
+  box-sizing: border-box;
+  animation: raceBoard 0.6s linear infinite;
+  background-position: 0 0, 16px 16px;
+}
+
+@keyframes raceBoard {
+  0% {
+    background-position: 0 0, 16px 16px;
+  }
+  100% {
+    background-position: 32px 0px, 48px 16px;
+  }
+}
+
+@media screen and (min-width: 875px) {
+  .characterContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    gap: 25px;
+  }
+
+  .characterContainer div {
+    margin: 2em;
+  }
+}
+
+/* The switch - the box around the slider */
+.directionToggle {
+  position: relative;
+  display: inline;
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.directionToggle p {
+  white-space: wrap;
+  margin-bottom: 0;
+  line-height: 1;
+  font-size: 0.8em;
+}
+
+/* Hide default HTML checkbox */
+.directionToggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  margin: 0 0 40px 0;
+  position: absolute;
+  cursor: pointer;
+  top: 75%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f750c5;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: url("./assets/DohNut.png");
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::after {
+  background-color: #1a1a1a;
+}
+
+input:checked + .slider {
+  background-color: #5596cf;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 10px #f750c5;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border: 2px solid #1a1a1a;
+  border-radius: 20px;
+  height: 37px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  border: 1px solid #1a1a1a;
+}
