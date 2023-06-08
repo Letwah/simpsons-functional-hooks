@@ -29,10 +29,11 @@ import { validate } from "../validation";
 // };
 
 const Search = (props) => {
+  const { onCharacterInput, characterInput } = props;
   const [errors, setErrors] = useState(null); //null mean no errors
 
   const onInput = async (e) => {
-    props.onCharacterInput(e.target.value);
+    onCharacterInput(e.target.value);
 
     //validate input
 
@@ -48,7 +49,7 @@ const Search = (props) => {
   return (
     <>
       <input
-        value={props.characterInput}
+        value={characterInput}
         id="characterId"
         onInput={onInput}
         type="text"
