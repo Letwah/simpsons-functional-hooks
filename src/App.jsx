@@ -156,3 +156,27 @@ const App = () => {
 };
 
 export default App;
+
+////////////////////////////////
+// CONTEXT(low grade solution)
+
+// import React from 'react';
+
+// const ThemeContext = React.createContext("light")
+// const App = () => {
+//   return <ThemeContext.Provider value="dark">
+//     <Child></Child>
+//     </ThemeContext.Provider> ;
+// }
+
+// export default App;
+
+// //////
+
+// const Child = () => {
+//   return ( <MyContext.Provider>
+///something consumed here.........
+//   </MyContext.Provider> );
+// }
+
+// export default Child;
