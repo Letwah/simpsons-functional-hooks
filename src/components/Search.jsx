@@ -28,8 +28,6 @@ import { validate } from "../validation";
 //   );
 // };
 
-// export default Search;
-
 const Search = () => {
   const [characterInput, setCharacterInput] = useState({
     characterId: "",
