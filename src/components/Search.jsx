@@ -28,15 +28,11 @@ import { validate } from "../validation";
 //   );
 // };
 
-const Search = () => {
-  const [characterInput, setCharacterInput] = useState({
-    characterId: "",
-  });
+const Search = (props) => {
   const [errors, setErrors] = useState(null); //null mean no errors
 
-  const onCharacterInput = async (e) => {
-    const result = { ...characterInput, [e.target.id]: e.target.value };
-    setCharacterInput(result);
+  const onInput = async (e) => {
+    props.onCharacterInput(e.target.value);
 
     //validate input
 
@@ -44,15 +40,17 @@ const Search = () => {
     // setErrors(res);
     //OR
 
-    setErrors(await validate(result, "characterSchema"));
+    setErrors(
+      await validate({ [e.target.id]: e.target.value }, "characterSchema")
+    );
   };
 
   return (
     <>
       <input
-        value={characterInput.characterId}
+        value={props.characterInput}
         id="characterId"
-        onInput={onCharacterInput}
+        onInput={onInput}
         type="text"
         placeholder="start typing ..."
       />

@@ -76,8 +76,8 @@ const App = () => {
     setSimpsons(_simpsons);
   };
 
-  const onCharacterInput = (e) => {
-    setCharacterInput(e.target.value);
+  const onCharacterInput = (value) => {
+    setCharacterInput(value);
   };
 
   const onSearchInput = (e) => {
@@ -139,6 +139,7 @@ const App = () => {
         </h1>
 
         <Search
+          characterInput={characterInput}
           onCharacterInput={onCharacterInput}
           onSearchInput={onSearchInput}
           onLikeDislikeInput={onLikeDislikeInput}
@@ -175,7 +176,7 @@ export default App;
 
 // const Child = () => {
 //   return ( <MyContext.Provider>
-///something consumed here.........
+// /something consumed here.........
 //   </MyContext.Provider> );
 // }
 
